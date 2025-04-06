@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="matrix">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
-<body style="background-color: #0a0a0a; position: relative; height: 100vh; opacity: 0; transition: opacity 1s ease-in-out;">
+<body style="position: relative; height: 100vh; opacity: 0; transition: all 1s ease-in-out;">
     <div class="card" id="loading">
         <div class="loader">
             <p>loading</p>
@@ -26,9 +26,9 @@
             <span aria-hidden="true" class="hover-text">&nbsp;KARAONTOP&nbsp;</span>
         </button>
         <div class="ai-input-container">
+            <label class="ai-label">Authentification</label>
             <div class="ai-input-inner">
                 <input placeholder="Enter Password" class="ai-input" type="text" />
-                <label class="ai-label">Authentification</label>
                 <button class="ai-button">↳</button>
                 <div class="digital-noise">
                     <span style="left: 15%; top: 20%; animation-delay: 0s;" class="noise-bit">1</span>
@@ -60,7 +60,7 @@
                         <pre class="pre">          <code>-&nbsp;</code>
           <code>info&nbsp;</code>
           <code class="cmd" data-cmd="you can't win against unknown."></code>
-        
+        </pre>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                     width="28"
                 >
                     <path
-                        fill="#00ff00"
+                        style="fill: var(--text-color);"
                         d="M11.994 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.006 0zm4.904 6.163l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.05 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.87 4.326-2.96-.924c-.643-.203-.658-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.94z"
                     ></path>
                 </svg>
@@ -107,6 +107,59 @@
 </div>
 
     </div>
+    <label id="theme-toggle-button">
+        <input type="checkbox" id="toggle">
+        <svg viewBox="0 0 69.667 44" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(3.5 3.5)" data-name="Component 15 – 1" id="Component_15_1">
+                <g filter="url(#container)" transform="matrix(1, 0, 0, 1, -3.5, -3.5)">
+                    <rect fill="#83cbd8" transform="translate(3.5 3.5)" rx="17.5" height="35" width="60.667" data-name="container" id="container"></rect>
+                </g>
+                <g transform="translate(2.333 2.333)" id="button">
+                    <g data-name="sun" id="sun">
+                        <g filter="url(#sun-outer)" transform="matrix(1, 0, 0, 1, -5.83, -5.83)">
+                            <circle fill="#f8e664" transform="translate(5.83 5.83)" r="15.167" cy="15.167" cx="15.167" data-name="sun-outer" id="sun-outer-2"></circle>
+                        </g>
+                        <g filter="url(#sun)" transform="matrix(1, 0, 0, 1, -5.83, -5.83)">
+                            <path fill="rgba(256,254,247,0.29)" transform="translate(9.33 9.33)" d="M11.667,0A11.667,11.667,0,1,1,0,11.667,11.667,11.667,0,0,1,11.667,0Z" data-name="sun" id="sun-3"></path>
+                        </g>
+                        <circle fill="#fcf4b9" transform="translate(8.167 8.167)" r="7" cy="7" cx="7" id="sun-inner"></circle>
+                    </g>
+                    <g data-name="moon" id="moon">
+                        <g filter="url(#moon)" transform="matrix(1, 0, 0, 1, -31.5, -5.83)">
+                            <circle fill="#cce6ee" transform="translate(31.5 5.83)" r="15.167" cy="15.167" cx="15.167" data-name="moon" id="moon-3"></circle>
+                        </g>
+                        <g fill="#a6cad0" transform="translate(-24.415 -1.009)" id="patches">
+                            <circle transform="translate(43.009 4.496)" r="2" cy="2" cx="2"></circle>
+                            <circle transform="translate(39.366 17.952)" r="2" cy="2" cx="2" data-name="patch"></circle>
+                            <circle transform="translate(33.016 8.044)" r="1" cy="1" cx="1" data-name="patch"></circle>
+                            <circle transform="translate(51.081 18.888)" r="1" cy="1" cx="1" data-name="patch"></circle>
+                            <circle transform="translate(33.016 22.503)" r="1" cy="1" cx="1" data-name="patch"></circle>
+                            <circle transform="translate(50.081 10.53)" r="1.5" cy="1.5" cx="1.5" data-name="patch"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </label>
+
     <script src="script.js"></script>
+    <script>
+        const toggle = document.getElementById('toggle');
+        const html = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme') || 'matrix';
+        html.dataset.theme = savedTheme;
+        toggle.checked = savedTheme === 'barbie';
+
+        toggle.addEventListener('change', () => {
+            if (toggle.checked) {
+                html.dataset.theme = 'barbie';
+                localStorage.setItem('theme', 'barbie');
+            } else {
+                html.dataset.theme = 'matrix';
+                localStorage.setItem('theme', 'matrix');
+            }
+        });
+    </script>
 </body>
-</html>
+</html> 
