@@ -1,12 +1,206 @@
+:root {
+  /* Matrix Theme (Default) */
+  --primary-color: #00ff00;
+  --background-color: #000000;
+  --text-color: #00ff00;
+  --border-color: #00ff00;
+  --shadow-color: rgba(0, 255, 0, 0.2);
+  --button-hover-color: #00cc00;
+  --terminal-background: #000000;
+  --switch-background: #000000;
+  --switch-border: #00ff00;
+}
+
+[data-theme="barbie"] {
+  /* Barbie Theme */
+  --primary-color: #f039b1;
+  --background-color: #fce6f3;
+  --text-color: #e305ad;
+  --border-color: #f658b8;
+  --shadow-color: rgba(238, 113, 195, 0.2);
+  --button-hover-color: #ee71c3;
+  --terminal-background: #fce6f3;
+  --switch-background: #fce6f3;
+  --switch-border: #f039b1;
+}
+
+/* Theme Toggle Switch Styles */
+#theme-toggle-button {
+  font-size: 17px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  width: 4.5em;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 3px;
+  border: 2px solid var(--switch-border);
+  border-radius: 25px;
+  background: var(--switch-background);
+  transition: all 0.3s ease;
+}
+
+#toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#container,
+#patches,
+#stars,
+#button,
+#sun,
+#moon {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+}
+
+/* Matrix background */
+#toggle + svg #container {
+  fill: #000000;
+}
+
+/* Barbie background when checked */
+#toggle:checked + svg #container {
+  fill: #f29ad8;
+}
+
+/* move button to right when checked */
+#toggle:checked + svg #button {
+  transform: translate(28px, 2.333px);
+}
+
+/* Matrix icon */
+#sun-outer-2 {
+  fill: #00ff00;
+}
+
+#sun-3 {
+  fill: rgba(0, 255, 0, 0.29);
+}
+
+#sun-inner {
+  fill: #00ff00;
+}
+
+/* Barbie icon */
+#moon-3 {
+  fill: #f039b1;
+}
+
+#patches circle {
+  fill: #ee71c3;
+}
+
+/* show/hide icons based on checkbox state */
+#sun {
+  opacity: 1;
+}
+
+#toggle:checked + svg #sun {
+  opacity: 0;
+}
+
+#moon {
+  opacity: 0;
+}
+
+#toggle:checked + svg #moon {
+  opacity: 1;
+}
+
+/* Update existing color variables to use theme variables */
 .ai-input-container {
   position: relative;
   width: 300px;
   padding: 4px;
-  background: #000000;
-  border: 1px solid #00ff00;
-  box-shadow: 0 0 12px #00ff00;
   border-radius: 4px;
   display: inline-block;
+  margin-top: 20px;
+  border: 0.5px solid var(--border-color);
+  background-color: var(--shadow-color);
+  backdrop-filter: blur(8px);
+}
+
+.ai-label {
+  position: absolute;
+  font-weight: bold;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-color);
+  text-shadow: 0 0 5px var(--shadow-color);
+  padding: 0 10px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.ai-input {
+  color: var(--text-color);
+  caret-color: var(--text-color);
+}
+
+.ai-input::placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+.ai-input:focus::placeholder {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.ai-input:not(:placeholder-shown)::placeholder {
+  color: transparent;
+}
+
+/* Placeholder rengi için özel webkit desteği */
+.ai-input::-webkit-input-placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+  transition: color 0.3s ease;
+}
+
+.ai-input:focus::-webkit-input-placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+/* Firefox için placeholder desteği */
+.ai-input::-moz-placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+  transition: color 0.3s ease;
+}
+
+.ai-input:focus::-moz-placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+/* IE/Edge için placeholder desteği */
+.ai-input:-ms-input-placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+  transition: color 0.3s ease;
+}
+
+.ai-input:focus:-ms-input-placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+.ai-button {
+  background: var(--primary-color);
+  color: var(--background-color);
+}
+
+.ai-button:hover {
+  background: var(--primary-color);
+  box-shadow: 0 0 15px var(--shadow-color);
 }
 
 .ai-input-inner {
@@ -15,8 +209,8 @@
   align-items: center;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 255, 0, 0.05),
-    rgba(0, 255, 0, 0.05) 2px,
+    var(--shadow-color),
+    var(--shadow-color) 2px,
     transparent 2px,
     transparent 10px
   );
@@ -29,61 +223,24 @@
   padding: 12px 15px;
   background: transparent;
   border: none;
-  color: #00ff00;
   font-family: "Courier New", monospace;
   font-size: 16px;
   outline: none;
-  caret-color: #00ff00;
   transition: all 0.3s ease;
   z-index: 1;
 }
 
-.ai-input:placeholder-shown {
-  color: transparent;
-}
-
-.ai-input:focus::placeholder {
-  color: #00ff0088;
-}
-
-.ai-input:not(:placeholder-shown)::placeholder {
-  color: transparent;
-}
-
 .ai-input:focus {
   box-shadow:
-    inset 0 0 10px #00ff00,
-    0 0 20px #00ff00;
+    inset 0 0 10px var(--text-color),
+    0 0 20px var(--text-color);
   animation: glitch-input 0.3s infinite;
-}
-
-.ai-label {
-  position: absolute;
-  top: -18px;
-  left: 15px;
-  color: #00ff00;
-  font-size: 12px;
-  text-shadow: 0 0 5px #00ff00;
-  background: #000000;
-  padding: 0 4px;
-  z-index: 2;
-}
-
-.ai-input:placeholder-shown + .ai-label {
-  top: -18px;
-}
-
-.ai-input:focus + .ai-label,
-.ai-input:not(:placeholder-shown) + .ai-label {
-  animation: flicker-label 1s infinite;
 }
 
 .ai-button {
   width: 36px;
   height: 36px;
-  background: #00ff00;
   border: none;
-  color: #0a0a0a;
   font-family: "Courier New", monospace;
   font-size: 18px;
   cursor: pointer;
@@ -92,12 +249,6 @@
   overflow: hidden;
   transition: all 0.2s ease;
   z-index: 1;
-}
-
-.ai-button:hover {
-  background: #00cc00;
-  box-shadow: 0 0 15px #00ff00;
-  animation: pulse-button 0.5s infinite;
 }
 
 .ai-button::before {
@@ -123,7 +274,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #00ff00;
+  background: var(--text-color);
   opacity: 0.3;
   animation: scanline 1s infinite linear;
 }
@@ -140,7 +291,7 @@
 
 .noise-bit {
   position: absolute;
-  color: #00ff00;
+  color: var(--text-color);
   font-size: 10px;
   opacity: 0;
   animation: noise-flash 0.8s infinite;
@@ -245,8 +396,8 @@
 
 .button {
   --border-right: 6px;
-  --text-stroke-color: rgba(255,255,255,0.6);
-  --animation-color: #00ff00;
+  --text-stroke-color: var(--text-color);
+  --animation-color: var(--primary-color);
   --fs-size: 2em;
   letter-spacing: 3px;
   text-decoration: none;
@@ -278,6 +429,7 @@ body {
   position: relative;
   overflow: hidden;
   height: 100vh;
+  background-color: var(--background-color) !important;
 }
 
 body::before {
@@ -291,8 +443,8 @@ body::before {
   z-index: -1;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 255, 0, 0.178),
-    rgba(0, 255, 0, 0.05) 5px,
+    var(--shadow-color),
+    var(--shadow-color) 5px,
     transparent 10px,
     transparent 55px
   );
@@ -303,7 +455,7 @@ body::before {
 
 body .noise-bit {
   position: absolute;
-  color: #00ff00;
+  color: var(--text-color);
   font-size: 10px;
   opacity: 0.3;
   pointer-events: none;
@@ -368,7 +520,7 @@ body .noise-bit:nth-child(5) {
 }
 
 .card {
-  --bg-color: #212121;
+  --bg-color: var(--terminal-background);
   background-color: var(--bg-color);
   padding: 1rem 2rem;
   border-radius: 1.25rem;
@@ -377,9 +529,10 @@ body .noise-bit:nth-child(5) {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
+  border: 0.5px solid var(--border-color);
 }
 .loader {
-  color: rgb(124, 124, 124);
+  color: var(--text-color);
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 25px;
@@ -391,6 +544,7 @@ body .noise-bit:nth-child(5) {
   display: -ms-flexbox;
   display: flex;
   border-radius: 8px;
+  opacity: 0.7;
 }
 
 .words {
@@ -414,7 +568,7 @@ body .noise-bit:nth-child(5) {
   display: block;
   height: 100%;
   padding-left: 6px;
-  color: #00ff00;
+  color: var(--text-color);
   animation: spin_4991 4s infinite;
 }
 
@@ -486,10 +640,10 @@ body .noise-bit:nth-child(5) {
 }
 
 .profile {
-  background: #2a2b2f;
+  background: var(--terminal-background);
   border-radius: 10px 15px;
   padding: 10px;
-  border: 1px solid #00ff00;
+  border: 1px solid var(--border-color);
 }
 
 .tooltip-container:hover .tooltip {
@@ -519,19 +673,19 @@ body .noise-bit:nth-child(5) {
   left: 0;
   height: 100%;
   width: 100%;
-  border: 1px solid #fff;
+  border: 1px solid var(--text-color) !important;
   border-radius: 5px;
   transition: all 0.3s;
 }
 
 .layer span,
 .text {
-  color: #00ff00;
-  border-color: #00ff00;
+  color: var(--text-color) !important;
+  border-color: var(--text-color) !important;
 }
 
 .icon:hover.layer span {
-  box-shadow: -1px 1px 3px #00ff00;
+  box-shadow: -1px 1px 3px var(--text-color) !important;
 }
 .icon .text {
   position: absolute;
@@ -573,8 +727,7 @@ body .noise-bit:nth-child(5) {
   font-size: 30px;
   line-height: 64px;
   text-align: center;
-  fill: #5865f2;
-  background: #000;
+  fill: var(--text-color) !important;
 }
 .user {
   display: flex;
@@ -585,7 +738,7 @@ body .noise-bit:nth-child(5) {
   height: 50px;
   font-size: 25px;
   font-weight: 700;
-  border: 1px solid #00ff00;
+  border: 1px solid var(--border-color) !important;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -595,7 +748,13 @@ body .noise-bit:nth-child(5) {
 .name {
   font-size: 17px;
   font-weight: 700;
-  color: #00ff00;
+  color: var(--text-color) !important;
+}
+.username {
+  color: var(--text-color) !important;
+  opacity: 0.8;
+  font-size: 17px;
+  font-weight: 500;
 }
 .details {
   display: flex;
@@ -604,7 +763,8 @@ body .noise-bit:nth-child(5) {
   color: #fff;
 }
 .about {
-  color: #ccc;
+  color: var(--text-color) !important;
+  opacity: 0.7;
   padding-top: 5px;
 }
 
@@ -621,10 +781,10 @@ body .noise-bit:nth-child(5) {
   gap: 1rem;
   position: relative;
   z-index: 10;
-  border: 0.5px solid #00ff00;
+  border: 0.5px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
-  background-color: rgba(0, 255, 0, 0.05);
+  background-color: var(--shadow-color);
   backdrop-filter: blur(8px);
 }
 
@@ -644,7 +804,7 @@ body .noise-bit:nth-child(5) {
   padding-inline: 12px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  background-color: #0a0a0a;
+  background-color: var(--terminal-background);
 }
 
 .terminal-card .title {
@@ -657,14 +817,14 @@ body .noise-bit:nth-child(5) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: #00ff00;
+  color: var(--text-color);
 }
 
 .terminal-card .title > svg {
   height: 18px;
   width: 18px;
   margin-top: 2px;
-  color: #00ff00;
+  color: var(--text-color);
 }
 
 .terminal-card .copy_toggle {
@@ -672,11 +832,11 @@ body .noise-bit:nth-child(5) {
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
-  border: 0.65px solid #00ff00;
+  border: 0.65px solid var(--border-color);
   margin-left: auto;
   border-radius: 6px;
-  background-color: #000000;
-  color: #00ff00;
+  background-color: var(--terminal-background);
+  color: var(--text-color);
   cursor: pointer;
 }
 
@@ -699,8 +859,8 @@ body .noise-bit:nth-child(5) {
   overflow-x: auto;
   padding: 1rem;
   line-height: 19px;
-  color: #00ff00;
-  background-color: black;
+  color: var(--text-color);
+  background-color: var(--terminal-background);
   white-space: nowrap;
 }
 
@@ -717,11 +877,11 @@ body .noise-bit:nth-child(5) {
 }
 
 .terminal-card .pre code:nth-child(1) {
-  color: #ff0000;
+  color: var(--primary-color);
 }
 
 .terminal-card .pre code:nth-child(2) {
-  color: #fafafa;
+  color: var(--primary-color);
 }
 
 .terminal-card .cmd {
@@ -749,7 +909,7 @@ body .noise-bit:nth-child(5) {
   height: 100%;
   overflow: hidden;
   background-color: transparent;
-  border-right: 0.15em solid #00ff00;
+  border-right: 0.15em solid var(--text-color);
   animation: cursor 0.5s step-end infinite alternate, blinking 0.5s infinite;
 }
 
@@ -787,9 +947,13 @@ body .noise-bit:nth-child(5) {
 
 @keyframes clipboard-check {
   100% {
-    color: #00ff00;
+    color: var(--text-color);
     d: path(
       "M 9 5 H 7 a 2 2 0 0 0 -2 2 v 12 a 2 2 0 0 0 2 2 h 10 a 2 2 0 0 0 2 -2 V 7 a 2 2 0 0 0 -2 -2 h -2 M 9 5 a 2 2 0 0 0 2 2 h 2 a 2 2 0 0 0 2 -2 M 9 5 a 2 2 0 0 1 2 -2 h 2 a 2 2 0 0 1 2 2 m -6 9 l 2 2 l 4 -4"
     );
   }
+}
+
+.fab svg path {
+  fill: var(--text-color) !important;
 }
