@@ -1,14 +1,14 @@
 # 🔒 KaraOnTop - Login With Access Code Page
 
-![Version](https://img.shields.io/badge/version-1.0.0-green)
+![Version](https://img.shields.io/badge/version-1.1.0-green)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Stars](https://img.shields.io/github/stars/KaraOnTop/KaraOnTop-Login?style=social)
-![Forks](https://img.shields.io/github/forks/KaraOnTop/KaraOnTop-Login?style=social)
+![Stars](https://img.shields.io/github/stars/KaraOnTop/KaraOnTop-Matrix-Login-Page?style=social)
+![Forks](https://img.shields.io/github/forks/KaraOnTop/KaraOnTop-Matrix-Login-Page?style=social)
 
 A cyberpunk-style login system featuring Matrix-inspired animations and terminal aesthetics. This project combines modern security practices with a unique user interface, creating an immersive authentication experience.
 
-> 🌟 **Features**: SHA-256 encryption, animated background with digital noise, responsive design, and terminal-style interface.
+> 🌟 **Features**: SHA-256 encryption, animated background with dynamic digital noise, responsive design, terminal-style interface, and brute force protection.
 
 [English](#english) | [Türkçe](#türkçe)
 
@@ -17,14 +17,15 @@ A cyberpunk-style login system featuring Matrix-inspired animations and terminal
 ## English
 
 ### Quick Overview
-- 🎨 Matrix-style animated background
+- 🎨 Matrix-style animated background with dynamic noise
 - 🔐 SHA-256 encryption for security
-- 💻 Terminal-themed interface
+- 🛡️ Brute force protection with rate limiting
+- 💻 Terminal-themed interface with copy functionality
 - 📱 Fully responsive design
 - ⚡ Modern animations and effects
 - 🌐 Cross-browser compatibility
 
-[View Demo](https://karaontop.github.io/KaraOnTop-Matrix-Login-Page) | [Report Bug](https://github.com/KaraOnTop/KaraOnTop-Login/issues) | [Request Feature](https://github.com/KaraOnTop/KaraOnTop-Login/issues)
+[View Demo](https://karaontop.github.io/KaraOnTop-Matrix-Login-Page) | [Report Bug](https://github.com/KaraOnTop/KaraOnTop-Matrix-Login-Page/issues) | [Request Feature](https://github.com/KaraOnTop/KaraOnTop-Matrix-Login-Page/issues)
 
 ---
 
@@ -46,8 +47,8 @@ Modern, animasyonlu ve güvenli bir giriş sistemi. Matrix tarzı tasarım ve te
 ## ✨ Özellikler
 
 ### 🎨 Tasarım Özellikleri
-- Matrix tarzı animasyonlu arka plan
-- Dijital gürültü efektleri (0 ve 1'ler)
+- Matrix tarzı dinamik animasyonlu arka plan
+- Rastgele konumlu dijital gürültü efektleri (0 ve 1'ler)
 - Terminal temalı giriş alanı
 - Neon yeşil renk teması
 - Responsive tasarım
@@ -59,12 +60,13 @@ Modern, animasyonlu ve güvenli bir giriş sistemi. Matrix tarzı tasarım ve te
 - KARAONTOP başlık butonu
 - Şifre giriş alanı
 - Terminal görünümlü bilgi ekranı
+- Terminal metni kopyalama butonu
 - Telegram iletişim butonu
 - Profil kartı
-- Kopyalama butonu
 
 ### 🛠 Teknik Özellikler
 - SHA-256 şifreleme
+- Brute force koruması (10 saniyede 3 deneme limiti)
 - Responsive tasarım desteği
 - Modern CSS animasyonları
 - Cross-browser uyumluluk
@@ -81,12 +83,12 @@ Modern, animasyonlu ve güvenli bir giriş sistemi. Matrix tarzı tasarım ve te
 
 1. Projeyi klonlayın:
 ```bash
-git clone https://github.com/KaraOnTop/KaraOnTop-Login.git
+git clone https://github.com/yourusername/KaraOnTop-Matrix-Login-Page.git
 ```
 
 2. Proje dizinine gidin:
 ```bash
-cd KaraOnTop-Login
+cd KaraOnTop-Matrix-Login-Page
 ```
 
 3. `index.html` dosyasını bir web tarayıcısında açın.
@@ -98,6 +100,7 @@ cd KaraOnTop-Login
 - Client-side şifreleme
 - XSS koruması için HTML escape
 - Minimal JavaScript kullanımı
+- Brute force koruması
 
 ### Güvenlik Riskleri ve Öneriler
 1. **Client-Side Şifreleme Limitleri**
@@ -108,11 +111,7 @@ cd KaraOnTop-Login
    - Şifre hash'i doğrudan kodda saklanıyor
    - Önerilen: Backend API entegrasyonu ve güvenli token sistemi
 
-3. **Brute Force Koruması Eksikliği**
-   - Deneme sayısı limiti yok
-   - Önerilen: Rate limiting ve CAPTCHA implementasyonu
-
-4. **Local Storage Güvenliği**
+3. **Local Storage Güvenliği**
    - Oturum bilgileri saklanmıyor
    - Önerilen: Güvenli session yönetimi
 
@@ -141,6 +140,7 @@ cd KaraOnTop-Login
 - [ ] Aktivite izleme
 - [ ] IP bazlı güvenlik
 - [ ] Otomatik güncelleme sistemi
+- [ ] CAPTCHA implementasyonu
 
 ## 🤝 Katkıda Bulunma
 
