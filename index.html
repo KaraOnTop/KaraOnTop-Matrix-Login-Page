@@ -60,50 +60,13 @@
                         <pre class="pre">          <code>-&nbsp;</code>
           <code>info&nbsp;</code>
           <code class="cmd" data-cmd="you can't win against unknown."></code>
-        </pre>
+        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="background-noise">
-        <span class="noise-bit" style="left: 6%; top: 10%; animation-delay: 0s;">0</span>
-        <span class="noise-bit" style="left: 21%; top: 20%; animation-delay: -0.1s;">1</span>
-        <span class="noise-bit" style="left: 14%; top: 30%; animation-delay: -0.2s;">0</span>
-        <span class="noise-bit" style="left: 38%; top: 40%; animation-delay: -0.3s;">1</span>
-        <span class="noise-bit" style="left: 47%; top: 50%; animation-delay: -0.4s;">0</span>
-        <span class="noise-bit" style="left: 49%; top: 60%; animation-delay: -0.5s;">1</span>
-        <span class="noise-bit" style="left: 54%; top: 70%; animation-delay: -0.6s;">0</span>
-        <span class="noise-bit" style="left: 77%; top: 80%; animation-delay: -0.7s;">1</span>
-        <span class="noise-bit" style="left: 65%; top: 90%; animation-delay: -0.8s;">0</span>
-        <span class="noise-bit" style="left: 85%; top: 5%; animation-delay: -0.9s;">1</span>
-        <span class="noise-bit" style="left: 10%; top: 15%; animation-delay: -1s;">0</span>
-        <span class="noise-bit" style="left: 20%; top: 25%; animation-delay: -1.1s;">1</span>
-        <span class="noise-bit" style="left: 30%; top: 35%; animation-delay: -1.2s;">0</span>
-        <span class="noise-bit" style="left: 40%; top: 45%; animation-delay: -1.3s;">1</span>
-        <span class="noise-bit" style="left: 50%; top: 55%; animation-delay: -1.4s;">0</span>
-        <span class="noise-bit" style="left: 60%; top: 65%; animation-delay: -1.5s;">1</span>
-        <span class="noise-bit" style="left: 70%; top: 75%; animation-delay: -1.6s;">0</span>
-        <span class="noise-bit" style="left: 80%; top: 85%; animation-delay: -1.7s;">1</span>
-        <span class="noise-bit" style="left: 90%; top: 95%; animation-delay: -1.8s;">0</span>
-        <span class="noise-bit" style="left: 5%; top: 95%; animation-delay: -1.9s;">1</span>
-        <span class="noise-bit" style="left: 15%; top: 85%; animation-delay: -2s;">0</span>
-        <span class="noise-bit" style="left: 25%; top: 75%; animation-delay: -2.1s;">1</span>
-        <span class="noise-bit" style="left: 35%; top: 65%; animation-delay: -2.2s;">0</span>
-        <span class="noise-bit" style="left: 45%; top: 55%; animation-delay: -2.3s;">1</span>
-        <span class="noise-bit" style="left: 55%; top: 45%; animation-delay: -2.4s;">0</span>
-        <span class="noise-bit" style="left: 65%; top: 35%; animation-delay: -2.5s;">1</span>
-        <span class="noise-bit" style="left: 75%; top: 25%; animation-delay: -2.6s;">0</span>
-        <span class="noise-bit" style="left: 85%; top: 15%; animation-delay: -2.7s;">1</span>
-        <span class="noise-bit" style="left: 95%; top: 10%; animation-delay: -2.8s;">0</span>
-        <span class="noise-bit" style="left: 10%; top: 5%; animation-delay: -2.9s;">1</span>
-        <span class="noise-bit" style="left: 20%; top: 10%; animation-delay: -3s;">0</span>
-        <span class="noise-bit" style="left: 30%; top: 20%; animation-delay: -3.1s;">1</span>
-        <span class="noise-bit" style="left: 40%; top: 30%; animation-delay: -3.2s;">0</span>
-        <span class="noise-bit" style="left: 50%; top: 40%; animation-delay: -3.3s;">1</span>
-        <span class="noise-bit" style="left: 60%; top: 50%; animation-delay: -3.4s;">0</span>
-        <span class="noise-bit" style="left: 70%; top: 60%; animation-delay: -3.5s;">1</span>
-    </div>
+    <div class="background-noise"></div>
     <div class="tooltip-container" style="position: absolute; bottom: 80px; left: 80px;">
         <div class="tooltip">
             <div class="profile">
@@ -144,24 +107,6 @@
 </div>
 
     </div>
-    <script>
-        window.addEventListener('load', function() {
-            document.getElementById('loading').style.display = 'none';
-            document.querySelector('.center-container').style.display = 'block';
-            document.body.style.opacity = '1';
-        });
-
-        document.querySelector('.ai-button').addEventListener('click', function() {
-            const inputPassword = document.querySelector('.ai-input').value;
-            const hashedPassword = CryptoJS.SHA256(inputPassword).toString();
-            const correctHashedPassword = "e1ab48135572679cad35ff68e5319b3354881c97e40521d4138afc922a933da4";
-
-            if (hashedPassword === correctHashedPassword) {
-                alert('Giriş başarılı!');
-            } else {
-                alert('Yanlış şifre!');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
