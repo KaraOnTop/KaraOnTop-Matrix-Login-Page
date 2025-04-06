@@ -10,6 +10,8 @@
 
 [English](#english) | [Türkçe](#türkçe)
 
+[View Demo](https://karaontop.github.io/KaraOnTop-Matrix-Login-Page) | [Report Bug](https://github.com/KaraOnTop/KaraOnTop-Login/issues) | [Request Feature](https://github.com/KaraOnTop/KaraOnTop-Login/issues)
+
 ---
 
 <a name="english"></a>
